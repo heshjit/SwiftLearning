@@ -26,6 +26,19 @@ class FoodTrackerTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testMealInitialization() {
+        //Success
+        let goodObject = Meal(name: "FirstMeal", photo: nil, rating: 2)
+        XCTAssertNotNil(goodObject,"Invalid object creation")
+        //Failure
+        let noName = Meal(name: "", photo: nil, rating: 5)
+        XCTAssertNil(noName,"Empty name is invalid")
+        
+        let negativeRating = Meal(name: "negative food", photo: nil, rating: -2)
+        XCTAssertNil(negativeRating,"Negative rating is invalid")
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
